@@ -1,6 +1,6 @@
-# simple chat UI
+# Simple Chat UI
 
-this project is a simple chat ui build with flutter ui toolkit.
+This template is a simple chat ui build with flutter ui toolkit.
 
 ## Screenshots
 
