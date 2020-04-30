@@ -55,7 +55,7 @@ class _ChatPageViewState extends State<ChatPageView> {
       ),
     ));
     childList.add(Align(
-      alignment: Alignment(1, 0),
+      alignment: Alignment(-1, 0),
       child: ReceivedMessageWidget(
         content: 'Hello, Mohammad.I am fine. How are you?',
         time: '22:40 PM',
