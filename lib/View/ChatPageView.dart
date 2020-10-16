@@ -46,6 +46,7 @@ class _ChatPageViewState extends State<ChatPageView> {
       child: SendedMessageWidget(
         content: 'Hello',
         time: '21:36 PM',
+        isImage: false,
       ),
     ));
     childList.add(Align(
@@ -53,6 +54,7 @@ class _ChatPageViewState extends State<ChatPageView> {
       child: SendedMessageWidget(
         content: 'How are you? What are you doing?',
         time: '21:36 PM',
+        isImage: false,
       ),
     ));
     childList.add(Align(
@@ -60,6 +62,7 @@ class _ChatPageViewState extends State<ChatPageView> {
       child: ReceivedMessageWidget(
         content: 'Hello, Mohammad.I am fine. How are you?',
         time: '22:40 PM',
+        isImage: false,
       ),
     ));
     childList.add(Align(
@@ -68,13 +71,18 @@ class _ChatPageViewState extends State<ChatPageView> {
         content:
             'I am good. Can you do something for me? I need your help my bro.',
         time: '22:40 PM',
+        isImage: false,
       ),
     ));
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
+    childList.add(Align(
+      alignment: Alignment(-1, 0),
+      child: ReceivedMessageWidget(
+        content: 'this is fun 😂',
+        time: '22:57 PM',
+        isImage: true,
+        imageAddress: 'assets/images/fun.jpg',
+      ),
+    ));
   }
 
   @override
@@ -93,7 +101,9 @@ class _ChatPageViewState extends State<ChatPageView> {
                   SizedBox(
                     height: 65,
                     child: Container(
-                      color: Settings.isDarkMode ? Colors.grey[900] : MyColors.blue,
+                      color: Settings.isDarkMode
+                          ? Colors.grey[900]
+                          : MyColors.blue,
                       child: Row(
                         children: <Widget>[
                           IconButton(
@@ -112,11 +122,13 @@ class _ChatPageViewState extends State<ChatPageView> {
                             children: <Widget>[
                               Text(
                                 widget.username ?? "Jimi Cooke",
-                                style: TextStyle(color: Colors.white, fontSize: 15),
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 15),
                               ),
                               Text(
                                 "online",
-                                style: TextStyle(color: Colors.white60, fontSize: 12),
+                                style: TextStyle(
+                                    color: Colors.white60, fontSize: 12),
                               ),
                             ],
                           ),
@@ -168,7 +180,10 @@ class _ChatPageViewState extends State<ChatPageView> {
                             image: AssetImage(
                                 "assets/images/chat-background-1.jpg"),
                             fit: BoxFit.cover,
-                            colorFilter: Settings.isDarkMode ? ColorFilter.mode(Colors.grey[850], BlendMode.hardLight) : ColorFilter.linearToSrgbGamma()),
+                            colorFilter: Settings.isDarkMode
+                                ? ColorFilter.mode(
+                                    Colors.grey[850], BlendMode.hardLight)
+                                : ColorFilter.linearToSrgbGamma()),
                       ),
                       child: SingleChildScrollView(
                           controller: _scrollController,
@@ -189,9 +204,20 @@ class _ChatPageViewState extends State<ChatPageView> {
                         maxLines: 20,
                         controller: _text,
                         decoration: InputDecoration(
-                          suffixIcon: IconButton(
-                            icon: Icon(Icons.send),
-                            onPressed: () {},
+                          suffixIcon: Row(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              IconButton(
+                                icon: Icon(Icons.send),
+                                onPressed: () {},
+                              ),
+                              IconButton(
+                                icon: Icon(Icons.image),
+                                onPressed: () {},
+                              ),
+                            ],
                           ),
                           border: InputBorder.none,
                           hintText: "enter your message",

@@ -24,11 +24,4 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/person1.jpg
-    - assets/images/person2.png
-    - assets/images/person3.jpg
-    - assets/images/person4.png
-    - assets/images/person5.jpg
-    - assets/images/person6.jpg
-    - assets/images/person7.jpg
-    - assets/images/chat-background-1.jpg
+    - assets/images/
