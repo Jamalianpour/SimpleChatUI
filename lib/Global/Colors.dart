@@ -30,7 +30,5 @@ const MaterialColor orange = const MaterialColor(0xFFFF8C00, const <int, Color>{
   900: const Color(0xFFFF8C00),
 });
 
-//Color orange = const Color(0xFFFF8C00);
-// Color blue = const Color(0xFF54C5E6);
 Color backGround = const Color(0xFFFbFbFb);
-// Color backGround = const Color(0xFFF2F2F2);
+Color darkBackGround = Colors.grey[850];

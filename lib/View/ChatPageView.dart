@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:simple_chat_application/Global/Colors.dart' as myColors;
+import 'package:simple_chat_application/Global/Colors.dart' as MyColors;
+import 'package:simple_chat_application/Global/Settings.dart' as Settings;
 import 'package:simple_chat_application/Widget/ReceivedMessageWidget.dart';
 import 'package:simple_chat_application/Widget/SendedMessageWidget.dart';
 
@@ -92,7 +93,7 @@ class _ChatPageViewState extends State<ChatPageView> {
                   SizedBox(
                     height: 65,
                     child: Container(
-                      color: myColors.blue.withOpacity(1),
+                      color: Settings.isDarkMode ? Colors.grey[900] : MyColors.blue,
                       child: Row(
                         children: <Widget>[
                           IconButton(
@@ -132,7 +133,7 @@ class _ChatPageViewState extends State<ChatPageView> {
                                         fit: BoxFit.cover,
                                       ),
                                     ),
-                                    color: myColors.orange),
+                                    color: MyColors.orange),
                                 borderRadius: new BorderRadius.circular(50),
                               ),
                               height: 55,
@@ -160,7 +161,6 @@ class _ChatPageViewState extends State<ChatPageView> {
                   ),
                   Flexible(
                     fit: FlexFit.tight,
-                    // height: 500,
                     child: Container(
                       width: MediaQuery.of(context).size.width,
                       decoration: BoxDecoration(
@@ -168,7 +168,7 @@ class _ChatPageViewState extends State<ChatPageView> {
                             image: AssetImage(
                                 "assets/images/chat-background-1.jpg"),
                             fit: BoxFit.cover,
-                            colorFilter: ColorFilter.linearToSrgbGamma()),
+                            colorFilter: Settings.isDarkMode ? ColorFilter.mode(Colors.grey[850], BlendMode.hardLight) : ColorFilter.linearToSrgbGamma()),
                       ),
                       child: SingleChildScrollView(
                           controller: _scrollController,
@@ -181,10 +181,7 @@ class _ChatPageViewState extends State<ChatPageView> {
                     ),
                   ),
                   Divider(height: 0, color: Colors.black26),
-                  // SizedBox(
-                  //   height: 50,
                   Container(
-                    color: Colors.white,
                     height: 50,
                     child: Padding(
                       padding: const EdgeInsets.only(left: 8.0),
@@ -192,7 +189,6 @@ class _ChatPageViewState extends State<ChatPageView> {
                         maxLines: 20,
                         controller: _text,
                         decoration: InputDecoration(
-                          // contentPadding: const EdgeInsets.symmetric(horizontal: 5.0),
                           suffixIcon: IconButton(
                             icon: Icon(Icons.send),
                             onPressed: () {},
@@ -203,7 +199,6 @@ class _ChatPageViewState extends State<ChatPageView> {
                       ),
                     ),
                   ),
-                  // ),
                 ],
               ),
             ],

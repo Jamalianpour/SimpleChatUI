@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:simple_chat_application/Global/Colors.dart' as myColors;
+import 'package:simple_chat_application/Global/Colors.dart' as MyColors;
 import 'package:simple_chat_application/Widget/ChatListViewItem.dart';
 import 'package:simple_chat_application/Widget/Loading.dart';
+import 'package:simple_chat_application/Global/Settings.dart' as Settings;
 
 class ChatListPageView extends StatefulWidget {
   @override
@@ -29,7 +30,8 @@ class _ChatListPageViewState extends State<ChatListPageView> {
     } else {
       return Container(
         child: Scaffold(
-          backgroundColor: myColors.blue,
+          backgroundColor: Settings.isDarkMode
+                    ? Colors.grey[900] : MyColors.blue,
           appBar: AppBar(
             elevation: 0,
             iconTheme: IconThemeData(
@@ -40,15 +42,26 @@ class _ChatListPageViewState extends State<ChatListPageView> {
               'chats',
               style: TextStyle(color: Colors.white, fontSize: 18),
             ),
+            leading: IconButton(
+              icon: Icon(Settings.isDarkMode
+                  ? Icons.wb_sunny
+                  : Icons.nightlight_round),
+              onPressed: () {
+                Settings.changeTheme();
+              },
+            ),
           ),
           body: Container(
             child: Container(
               decoration: BoxDecoration(
-                  color: myColors.backGround,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(15.0),
-                    topRight: Radius.circular(15.0),
-                  )),
+                color: Settings.isDarkMode
+                    ? MyColors.darkBackGround
+                    : MyColors.backGround,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(15.0),
+                  topRight: Radius.circular(15.0),
+                ),
+              ),
               child: ListView(
                 children: <Widget>[
                   ChatListViewItem(
