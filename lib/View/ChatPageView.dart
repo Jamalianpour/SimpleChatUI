@@ -95,8 +95,6 @@ class _ChatPageViewState extends State<ChatPageView> {
             children: <Widget>[
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                // mainAxisAlignment: MainAxisAlignment.start,
-                // mainAxisSize: MainAxisSize.max,
                 children: <Widget>[
                   SizedBox(
                     height: 65,

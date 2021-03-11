@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:simple_chat_application/View/ChatListPageView.dart';
 import 'package:simple_chat_application/Global/Settings.dart' as Settings;
 import 'package:simple_chat_application/Global/Theme.dart' as Theme;
+import 'package:simple_chat_application/View/MainPageView.dart';
 
 void main() => runApp(MyApp());
 
@@ -39,7 +39,7 @@ class _MyAppState extends State<MyApp> {
       title: 'Simple Chat UI',
       debugShowCheckedModeBanner: false,
       theme: Settings.isDarkMode ? Theme.darkTheme : Theme.lightTheme,
-      home: ChatListPageView(),
+      home: MainPageView(),
     );
   }
 }
